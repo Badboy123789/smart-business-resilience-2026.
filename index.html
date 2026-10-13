@@ -4,211 +4,822 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Smart Business Resilience | Engineering Solutions</title>
+    <title>SBR | Smart Business Resilience — Engineering Excellence</title>
 
-    <meta name="description" content="Smart Business Resilience provides electrical, mechanical, public health, lighting and sustainable engineering solutions.">
+    <meta name="description"
+          content="Smart Business Resilience (SBR) delivers innovative engineering solutions across electrical, mechanical, public health, lighting and sustainability engineering.">
 
-    <link rel="stylesheet" href="style.css">
-    
+    <meta name="theme-color" content="#080808">
+
+    <!-- Main website design -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Additional animations, if this file exists -->
+    <link rel="stylesheet" href="css/animations.css">
+
+    <style>
+        :root {
+            --sbr-black: #080808;
+            --sbr-panel: #111111;
+            --sbr-pink: #f05291;
+            --sbr-pink-light: #ff8ab9;
+            --sbr-white: #ffffff;
+            --sbr-muted: #c6c6c6;
+            --sbr-border: rgba(240, 82, 145, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            margin: 0;
+            background: var(--sbr-black);
+            color: var(--sbr-white);
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .sbr-container {
+            width: min(1200px, 88%);
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION */
+
+        .sbr-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 18px 6%;
+            background: rgba(8, 8, 8, 0.96);
+            border-bottom: 1px solid var(--sbr-border);
+            backdrop-filter: blur(14px);
+        }
+
+        .sbr-logo {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+            flex-shrink: 0;
+        }
+
+        .sbr-logo strong {
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: var(--sbr-white);
+        }
+
+        .sbr-logo strong span {
+            color: var(--sbr-pink);
+        }
+
+        .sbr-logo small {
+            margin-top: 5px;
+            color: var(--sbr-muted);
+            font-size: 9px;
+            letter-spacing: 1.4px;
+        }
+
+        .sbr-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .sbr-nav-links a {
+            color: #e5e5e5;
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+
+        .sbr-nav-links a:hover {
+            color: var(--sbr-pink);
+        }
+
+        .sbr-nav-links .sbr-nav-contact {
+            padding: 12px 17px;
+            border: 1px solid var(--sbr-pink);
+            color: var(--sbr-pink);
+        }
+
+        .sbr-nav-links .sbr-nav-contact:hover {
+            background: var(--sbr-pink);
+            color: var(--sbr-black);
+        }
+
+        /* HERO */
+
+        .sbr-hero {
+            position: relative;
+            isolation: isolate;
+            min-height: 690px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 90px 0;
+            background:
+                radial-gradient(
+                    ellipse at 85% 42%,
+                    rgba(240, 82, 145, 0.16),
+                    transparent 40%
+                ),
+                var(--sbr-black);
+        }
+
+        .sbr-hero::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 9%;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(
+                transparent,
+                rgba(240, 82, 145, 0.5),
+                transparent
+            );
+        }
+
+        .sbr-hero-content {
+            position: relative;
+            z-index: 2;
+            width: min(900px, 88%);
+            margin-left: 8%;
+        }
+
+        .sbr-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+            color: var(--sbr-pink);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .sbr-eyebrow::before {
+            content: "";
+            width: 35px;
+            height: 2px;
+            background: var(--sbr-pink);
+        }
+
+        .sbr-hero h1 {
+            margin: 0;
+            font-size: clamp(65px, 13vw, 155px);
+            line-height: 0.85;
+            font-weight: 900;
+            letter-spacing: -8px;
+        }
+
+        .sbr-hero h1 .sbr-letters {
+            display: block;
+            color: var(--sbr-white);
+            text-shadow: 0 0 55px rgba(240, 82, 145, 0.12);
+        }
+
+        .sbr-hero h1 .sbr-letters span {
+            color: var(--sbr-pink);
+        }
+
+        .sbr-full-name {
+            margin-top: 30px;
+            max-width: 750px;
+            color: var(--sbr-white);
+            font-size: clamp(20px, 3.5vw, 35px);
+            line-height: 1.25;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .sbr-full-name span {
+            color: var(--sbr-pink);
+        }
+
+        .sbr-hero-description {
+            max-width: 560px;
+            margin-top: 24px;
+            color: var(--sbr-muted);
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .sbr-hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .sbr-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 52px;
+            padding: 15px 25px;
+            border: 1px solid var(--sbr-pink);
+            background: var(--sbr-pink);
+            color: var(--sbr-black);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .sbr-button:hover {
+            transform: translateY(-4px);
+            background: var(--sbr-pink-light);
+            box-shadow: 0 10px 35px rgba(240, 82, 145, 0.2);
+        }
+
+        .sbr-button-outline {
+            background: transparent;
+            color: var(--sbr-white);
+        }
+
+        .sbr-button-outline:hover {
+            color: var(--sbr-black);
+            background: var(--sbr-pink);
+        }
+
+        .sbr-hero-index {
+            position: absolute;
+            right: 6%;
+            bottom: 40px;
+            color: var(--sbr-pink);
+            font-size: 11px;
+            letter-spacing: 3px;
+            writing-mode: vertical-rl;
+        }
+
+        /* MOVING BRAND STRIP */
+
+        .sbr-marquee {
+            overflow: hidden;
+            padding: 18px 0;
+            background: var(--sbr-pink);
+            color: var(--sbr-black);
+        }
+
+        .sbr-marquee-track {
+            display: flex;
+            width: max-content;
+            animation: sbr-marquee-move 28s linear infinite;
+        }
+
+        .sbr-marquee-track span {
+            padding-right: 35px;
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            white-space: nowrap;
+        }
+
+        @keyframes sbr-marquee-move {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* INTRODUCTION */
+
+        .sbr-intro {
+            padding: 115px 0;
+            background: var(--sbr-black);
+        }
+
+        .sbr-intro-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 75px;
+            align-items: start;
+        }
+
+        .sbr-section-label {
+            color: var(--sbr-pink);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .sbr-intro h2,
+        .sbr-section-heading h2 {
+            margin: 18px 0;
+            color: var(--sbr-white);
+            font-size: clamp(34px, 5vw, 58px);
+            line-height: 1.08;
+            letter-spacing: -2px;
+        }
+
+        .sbr-intro h2 span,
+        .sbr-section-heading h2 span {
+            color: var(--sbr-pink);
+        }
+
+        .sbr-intro-copy p {
+            color: var(--sbr-muted);
+            font-size: 15px;
+            line-height: 1.95;
+        }
+
+        .sbr-text-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--sbr-pink);
+            color: var(--sbr-pink);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* SERVICES */
+
+        .sbr-services {
+            padding: 105px 0;
+            background: #0d0d0d;
+            border-top: 1px solid var(--sbr-border);
+            border-bottom: 1px solid var(--sbr-border);
+        }
+
+        .sbr-section-heading {
+            max-width: 750px;
+            margin-bottom: 45px;
+        }
+
+        .sbr-section-heading > p {
+            color: var(--sbr-muted);
+            line-height: 1.9;
+        }
+
+        .sbr-service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .sbr-service-card {
+            position: relative;
+            min-height: 240px;
+            padding: 30px;
+            overflow: hidden;
+            background: var(--sbr-panel);
+            border: 1px solid var(--sbr-border);
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .sbr-service-card::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 3px;
+            background: var(--sbr-pink);
+            transition: width 0.4s ease;
+        }
+
+        .sbr-service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--sbr-pink);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .sbr-service-card:hover::after {
+            width: 100%;
+        }
+
+        .sbr-service-number {
+            display: block;
+            margin-bottom: 32px;
+            color: var(--sbr-pink);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .sbr-service-card h3 {
+            margin: 0 0 14px;
+            color: var(--sbr-white);
+            font-size: 20px;
+        }
+
+        .sbr-service-card p {
+            margin: 0;
+            color: var(--sbr-muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* ENGINEERING VISUALS */
+
+        .sbr-visuals {
+            padding: 110px 0;
+            background: var(--sbr-black);
+        }
+
+        .sbr-visual-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .sbr-visual-card {
+            position: relative;
+            min-height: 340px;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            background: var(--sbr-panel);
+            border: 1px solid var(--sbr-border);
+        }
+
+        .sbr-visual-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .sbr-visual-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .sbr-visual-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                transparent 5%,
+                rgba(8, 8, 8, 0.35) 35%,
+                rgba(8, 8, 8, 0.96) 100%
+            );
+        }
+
+        .sbr-visual-caption {
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+        }
+
+        .sbr-visual-caption span {
+            color: var(--sbr-pink);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .sbr-visual-caption h3 {
+            margin: 10px 0 0;
+            font-size: 26px;
+        }
+
+        .sbr-visual-caption p {
+            margin: 10px 0 0;
+            color: #dedede;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* CALL TO ACTION */
+
+        .sbr-cta {
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+            background:
+                radial-gradient(
+                    circle at 85% 50%,
+                    rgba(240, 82, 145, 0.17),
+                    transparent 35%
+                ),
+                #101010;
+            border-top: 1px solid var(--sbr-border);
+        }
+
+        .sbr-cta-content {
+            max-width: 800px;
+        }
+
+        .sbr-cta h2 {
+            margin: 20px 0;
+            font-size: clamp(38px, 7vw, 75px);
+            line-height: 1;
+            letter-spacing: -3px;
+        }
+
+        .sbr-cta h2 span {
+            color: var(--sbr-pink);
+        }
+
+        .sbr-cta p {
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: var(--sbr-muted);
+            line-height: 1.9;
+        }
+
+        /* FOOTER */
+
+        .sbr-footer {
+            padding: 55px 0 25px;
+            background: #050505;
+        }
+
+        .sbr-footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        .sbr-footer-brand {
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        .sbr-footer-brand span {
+            color: var(--sbr-pink);
+        }
+
+        .sbr-footer p {
+            color: var(--sbr-muted);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .sbr-footer h3 {
+            margin: 0 0 18px;
+            color: var(--sbr-pink);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .sbr-footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .sbr-footer-links a {
+            color: var(--sbr-muted);
+            font-size: 13px;
+            overflow-wrap: anywhere;
+            transition: color 0.3s ease;
+        }
+
+        .sbr-footer-links a:hover {
+            color: var(--sbr-pink);
+        }
+
+        .sbr-footer-bottom {
+            padding-top: 22px;
+            border-top: 1px solid var(--sbr-border);
+        }
+
+        .sbr-footer-bottom p {
+            margin: 0;
+            font-size: 11px;
+        }
+
+        /* JAVASCRIPT SCROLL REVEALS */
+
+        .sbr-reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .sbr-reveal.sbr-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sbr-hero .sbr-reveal {
+            transition-duration: 1s;
+        }
+
+        .sbr-service-card:nth-child(2),
+        .sbr-visual-card:nth-child(2) {
+            transition-delay: 0.12s;
+        }
+
+        .sbr-service-card:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+            .sbr-nav {
+                flex-wrap: wrap;
+            }
+
+            .sbr-nav-links {
+                width: 100%;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 15px 20px;
+            }
+
+            .sbr-intro-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .sbr-service-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .sbr-footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .sbr-container {
+                width: 88%;
+            }
+
+            .sbr-nav {
+                padding: 16px 6%;
+            }
+
+            .sbr-logo strong {
+                font-size: 27px;
+            }
+
+            .sbr-nav-links {
+                gap: 13px 17px;
+            }
+
+            .sbr-nav-links a {
+                font-size: 12px;
+            }
+
+            .sbr-nav-links .sbr-nav-contact {
+                padding: 8px 10px;
+            }
+
+            .sbr-hero {
+                min-height: 610px;
+                padding: 75px 0;
+            }
+
+            .sbr-hero-content {
+                width: 88%;
+                margin-left: 6%;
+            }
+
+            .sbr-hero h1 {
+                font-size: clamp(72px, 21vw, 110px);
+                letter-spacing: -5px;
+            }
+
+            .sbr-full-name {
+                font-size: 23px;
+            }
+
+            .sbr-hero-description {
+                font-size: 14px;
+            }
+
+            .sbr-eyebrow {
+                font-size: 9px;
+                letter-spacing: 2px;
+            }
+
+            .sbr-hero-index {
+                right: 4%;
+                bottom: 20px;
+            }
+
+            .sbr-intro,
+            .sbr-services,
+            .sbr-visuals {
+                padding: 75px 0;
+            }
+
+            .sbr-service-grid,
+            .sbr-visual-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sbr-service-card {
+                min-height: 210px;
+            }
+
+            .sbr-visual-card {
+                min-height: 290px;
+            }
+
+            .sbr-visual-caption h3 {
+                font-size: 23px;
+            }
+
+            .sbr-cta {
+                padding: 75px 0;
+            }
+
+            .sbr-cta h2 {
+                letter-spacing: -1px;
+            }
+
+            .sbr-footer-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .sbr-reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
 </head>
-    
-    <body>
 
-    <header class="header">
-        <a href="index.html" class="logo">
-            SMART BUSINESS
-            <span>RESILIENCE</span>
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav class="sbr-nav" aria-label="Main navigation">
+
+        <a href="index.html" class="sbr-logo" aria-label="SBR Home">
+            <strong><span>S</span>BR</strong>
+            <small>SMART BUSINESS RESILIENCE</small>
         </a>
 
-        <nav class="navigation">
+        <div class="sbr-nav-links">
             <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+            <a href="pages/about.html">About</a>
+            <a href="pages/services.html">Services</a>
+            <a href="pages/projects.html">Projects</a>
+            <a href="pages/contact.html" class="sbr-nav-contact">
+                Contact Us ↗
+            </a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
 
     <main>
 
-        <section class="hero">
-            <div class="hero-content">
+        <section class="sbr-hero" id="home">
 
-                <p class="eyebrow">ENGINEERING A BETTER FUTURE</p>
-
-                <h1>
-                    Smart Engineering.
-                    <span>Resilient Futures.</span>
-                </h1>
-
-                <p class="hero-description">
-                    We deliver practical, innovative and sustainable
-                    engineering solutions designed to support buildings,
-                    businesses and communities.
-                </p>
-
-                <div class="hero-buttons">
-                    <a href="services.html" class="button button-primary">
-                        Explore Our Services
-                    </a>
-
-                    <a href="contact.html" class="button button-outline">
-                        Contact Us
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="hero-decoration">
-                <div class="decoration-box">
-                    <span>ENGINEERING</span>
-                    <strong>Built on Excellence</strong>
-                    <p>Designed for lasting performance.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="intro section">
-            <p class="eyebrow">WHO WE ARE</p>
-
-            <h2>Engineering solutions with purpose.</h2>
-
-            <p>
-                Smart Business Resilience focuses on dependable engineering
-                solutions that improve building performance, efficiency
-                and long-term sustainability.
-            </p>
-
-            <a href="about.html" class="text-link">
-                Discover Our Company →
-            </a>
-        </section>
-
-        <section class="services-preview section">
-
-            <p class="eyebrow">WHAT WE DO</p>
-
-            <h2>Our Engineering Expertise</h2>
-
-            <p class="section-description">
-                Integrated services designed around quality,
-                performance and sustainability.
-            </p>
-
-            <div class="service-grid">
-
-                <article class="service-card">
-                    <span class="service-number">01</span>
-                    <h3>Electrical Engineering</h3>
-                    <p>
-                        Electrical systems designed to support safe,
-                        reliable and efficient building operations.
-                    </p>
-                </article>
-
-                <article class="service-card">
-                    <span class="service-number">02</span>
-                    <h3>Mechanical Engineering</h3>
-                    <p>
-                        Mechanical solutions focused on functionality,
-                        comfort and dependable performance.
-                    </p>
-                </article>
-
-                <article class="service-card">
-                    <span class="service-number">03</span>
-                    <h3>Public Health Engineering</h3>
-                    <p>
-                        Building water and drainage systems planned
-                        with health, safety and reliability in mind.
-                    </p>
-                </article>
-
-                <article class="service-card">
-                    <span class="service-number">04</span>
-                    <h3>Lighting Design</h3>
-                    <p>
-                        Thoughtful lighting solutions that balance
-                        visual comfort, function and efficiency.
-                    </p>
-                </article>
-
-                <article class="service-card">
-                    <span class="service-number">05</span>
-                    <h3>Sustainability</h3>
-                    <p>
-                        Practical approaches to improving resource
-                        efficiency and environmental performance.
-                    </p>
-                </article>
-
-            </div>
-
-            <a href="services.html" class="button button-primary">
-                View All Services
-            </a>
-
-        </section>
-
-        <section class="feature section">
-
-            <div>
-                <p class="eyebrow">OUR APPROACH</p>
-
-                <h2>Built around quality. Designed for the future.</h2>
-            </div>
-
-            <p>
-                We believe effective engineering combines careful planning,
-                technical knowledge and a commitment to lasting results.
-                Our focus is on solutions that respond to each project's
-                needs while keeping performance and sustainability in view.
-            </p>
-
-        </section>
-
-        <section class="cta section">
-
-            <p class="eyebrow">LET'S WORK TOGETHER</p>
-
-            <h2>Have an engineering project in mind?</h2>
-
-            <p>
-                Get in touch to discuss your requirements and explore
-                how we can help.
-            </p>
-
-            <a href="contact.html" class="button button-light">
-                Start a Conversation
-            </a>
-
-        </section>
-
-    </main>
-
-    <footer class="footer">
-
-        <a href="index.html" class="logo">
-            SMART BUSINESS
-            <span>RESILIENCE</span>
-        </a>
-
-        <p>
-            Engineering solutions for a more resilient future.
-        </p>
-
-        <a href="mailto:info@smartbusinessresilience.co.uk">
-            info@smartbusinessresilience.co.uk
-        </a>
-
-        <p class="copyright">
-            &copy; <span id="year">2026</span>
-            Smart Business Resilience. All rights reserved.
-        </p>
-
-    </footer>
-
-    <script src="main.js"></script>
-
-</body>
-                      </html>
+            <div class="sbr-hero-content
