@@ -6,199 +6,763 @@
 
     <title>About Us | Smart Business Resilience</title>
 
-    <meta name="description" content="Learn about Smart Business Resilience and our commitment to dependable, sustainable engineering solutions.">
+    <meta name="description" content="Learn about Smart Business Resilience, an engineering-focused company covering electrical, mechanical, public health, lighting and sustainability.">
 
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .pink {
+            color: #ff1688;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #080808;
+            border-bottom: 1px solid #292929;
+        }
+
+        .navbar {
+            min-height: 85px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-symbol {
+            width: 52px;
+            height: 52px;
+            border: 3px solid #ff1688;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff1688;
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .logo-text h2 {
+            font-size: 21px;
+            line-height: 1.2;
+            letter-spacing: 1.5px;
+        }
+
+        .logo-text p {
+            color: #ff1688;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        nav a {
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #ff1688;
+        }
+
+        .nav-button {
+            background: #ff1688;
+            color: #080808;
+            padding: 10px 16px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .nav-button:hover {
+            background: #ffffff;
+            color: #080808;
+        }
+
+        /* PAGE HERO */
+
+        .page-hero {
+            padding: 100px 0;
+            background:
+                radial-gradient(
+                    ellipse at 85% 30%,
+                    rgba(255, 22, 136, 0.18),
+                    transparent 45%
+                ),
+                #080808;
+        }
+
+        .breadcrumb {
+            color: #ff1688;
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        .page-hero h1 {
+            max-width: 850px;
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: 1.12;
+            margin-bottom: 25px;
+        }
+
+        .page-hero p {
+            max-width: 720px;
+            color: #d0d0d0;
+            font-size: 18px;
+        }
+
+        /* BUTTONS */
+
+        .button {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 13px 22px;
+            background: #ff1688;
+            color: #080808;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #ffffff;
+        }
+
+        /* SECTION HEADINGS */
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-label {
+            color: #ff1688;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(30px, 5vw, 45px);
+            line-height: 1.25;
+            margin-bottom: 22px;
+        }
+
+        .section-description {
+            color: #c8c8c8;
+            max-width: 760px;
+        }
+
+        /* COMPANY INTRODUCTION */
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .intro-image {
+            min-height: 390px;
+            background:
+                linear-gradient(
+                    rgba(8, 8, 8, 0.15),
+                    rgba(8, 8, 8, 0.65)
+                ),
+                url("https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1000&q=80");
+            background-position: center;
+            background-size: cover;
+            border: 1px solid #ff1688;
+            border-radius: 10px;
+        }
+
+        .intro-text p {
+            color: #c8c8c8;
+            margin-bottom: 18px;
+        }
+
+        /* MISSION AND VISION */
+
+        .mission-section {
+            background: #101010;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .mission-card {
+            padding: 35px;
+            border: 1px solid #333333;
+            border-radius: 9px;
+            background: #080808;
+        }
+
+        .mission-card:hover {
+            border-color: #ff1688;
+        }
+
+        .card-number {
+            color: #ff1688;
+            font-weight: bold;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .mission-card h3 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .mission-card p {
+            color: #c8c8c8;
+        }
+
+        /* VALUES */
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            padding: 28px;
+            border: 1px solid #303030;
+            border-radius: 8px;
+            background: #101010;
+        }
+
+        .value-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            color: #c8c8c8;
+            font-size: 14px;
+        }
+
+        .value-mark {
+            color: #ff1688;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        /* ENGINEERING DISCIPLINES */
+
+        .disciplines-section {
+            background: #101010;
+        }
+
+        .discipline-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .discipline-list li {
+            background: #080808;
+            border: 1px solid #303030;
+            border-left: 3px solid #ff1688;
+            padding: 18px 20px;
+        }
+
+        /* CALL TO ACTION */
+
+        .cta-section {
+            background: #ff1688;
+            color: #080808;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            max-width: 800px;
+            margin: 0 auto 18px;
+            font-size: clamp(32px, 5vw, 48px);
+            line-height: 1.2;
+        }
+
+        .cta-section p {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .cta-section .button {
+            background: #080808;
+            color: #ffffff;
+        }
+
+        .cta-section .button:hover {
+            background: #ffffff;
+            color: #080808;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #050505;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 35px;
+            padding-bottom: 35px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-about p {
+            color: #c8c8c8;
+            font-size: 14px;
+            margin-top: 18px;
+            max-width: 400px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #c8c8c8;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .footer-links a:hover {
+            color: #ff1688;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #292929;
+            padding-top: 20px;
+            text-align: center;
+            color: #c8c8c8;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media (max-width: 850px) {
+            .navbar {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .page-hero {
+                padding: 70px 0;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .values-grid,
+            .discipline-list,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-image {
+                min-height: 260px;
+            }
+
+            .logo-text h2 {
+                font-size: 18px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header class="header">
+    <!-- HEADER -->
+    <header>
+        <div class="container navbar">
 
-        <a href="index.html" class="logo">
-            SMART BUSINESS
-            <span>RESILIENCE</span>
-        </a>
+            <a href="../index.html" class="logo">
+                <div class="logo-symbol">SBR</div>
 
-        <nav class="navigation">
-            <a href="index.html">Home</a>
-            <a href="about.html" class="active">About</a>
-            <a href="services.html">Services</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+                <div class="logo-text">
+                    <h2>SMART BUSINESS</h2>
+                    <p>RESILIENCE</p>
+                </div>
+            </a>
 
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="services.html">Services</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html" class="nav-button">Contact Us</a>
+            </nav>
+
+        </div>
     </header>
 
+
+    <!-- ABOUT PAGE INTRODUCTION -->
     <main>
 
         <section class="page-hero">
+            <div class="container">
 
-            <p class="eyebrow">ABOUT OUR COMPANY</p>
+                <div class="breadcrumb">
+                    HOME / ABOUT US
+                </div>
 
-            <h1>Engineering with purpose.</h1>
+                <h1>
+                    About <span class="pink">Smart Business Resilience</span>
+                </h1>
 
-            <p>
-                Discover our approach to engineering, innovation
-                and sustainable building performance.
-            </p>
+                <p>
+                    We are an engineering-focused company working across
+                    electrical, mechanical, public health, lighting and
+                    sustainability disciplines to support smarter,
+                    more efficient and resilient environments.
+                </p>
 
-        </section>
-
-        <section class="section about-intro">
-
-            <p class="eyebrow">WHO WE ARE</p>
-
-            <h2>Building resilience through engineering.</h2>
-
-            <p>
-                Smart Business Resilience is an engineering-focused
-                company committed to delivering practical and
-                forward-thinking solutions for buildings and the
-                environments in which people live and work.
-            </p>
-
-            <p>
-                Our areas of expertise include electrical engineering,
-                mechanical engineering, public health engineering,
-                lighting and sustainability.
-            </p>
-
-            <p>
-                We recognise the importance of reliable systems,
-                thoughtful design and efficient building performance.
-                Our approach focuses on understanding project
-                requirements and working towards solutions that
-                meet practical needs.
-            </p>
-
-        </section>
-
-        <section class="section values-section">
-
-            <p class="eyebrow">WHAT GUIDES US</p>
-
-            <h2>Our Core Values</h2>
-
-            <div class="service-grid">
-
-                <article class="service-card">
-
-                    <span class="service-number">01</span>
-
-                    <h3>Quality</h3>
-
-                    <p>
-                        We value careful planning, attention to detail
-                        and a commitment to high standards.
-                    </p>
-
-                </article>
-
-                <article class="service-card">
-
-                    <span class="service-number">02</span>
-
-                    <h3>Innovation</h3>
-
-                    <p>
-                        We encourage practical ideas and thoughtful
-                        approaches to engineering challenges.
-                    </p>
-
-                </article>
-
-                <article class="service-card">
-
-                    <span class="service-number">03</span>
-
-                    <h3>Sustainability</h3>
-
-                    <p>
-                        We recognise the importance of responsible
-                        resource use and long-term performance.
-                    </p>
-
-                </article>
-
-                <article class="service-card">
-
-                    <span class="service-number">04</span>
-
-                    <h3>Reliability</h3>
-
-                    <p>
-                        We believe dependable engineering starts
-                        with understanding requirements and
-                        focusing on practical outcomes.
-                    </p>
-
-                </article>
+                <a href="services.html" class="button">
+                    Explore Our Services
+                </a>
 
             </div>
-
         </section>
 
-        <section class="feature section">
 
-            <div>
+        <!-- WHO WE ARE -->
+        <section>
+            <div class="container intro-grid">
 
-                <p class="eyebrow">OUR MISSION</p>
+                <div class="intro-image" role="img"
+                     aria-label="Illustrative engineering workplace image">
+                </div>
 
-                <h2>Practical solutions. Lasting value.</h2>
+                <div class="intro-text">
+
+                    <div class="section-label">Who We Are</div>
+
+                    <h2 class="section-title">
+                        Engineering at the Heart of
+                        <span class="pink">What We Do.</span>
+                    </h2>
+
+                    <p>
+                        Smart Business Resilience, known as SBR, is an
+                        engineering-focused company with an interest in
+                        the systems and solutions that help buildings
+                        and environments function effectively.
+                    </p>
+
+                    <p>
+                        Our areas of focus include electrical engineering,
+                        mechanical engineering, public health engineering,
+                        lighting and sustainability.
+                    </p>
+
+                    <p>
+                        We recognise the importance of thoughtful
+                        engineering, coordination between disciplines
+                        and consideration of long-term performance.
+                    </p>
+
+                    <a href="contact.html" class="button">
+                        Get in Touch
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- MISSION AND VISION -->
+        <section class="mission-section">
+            <div class="container">
+
+                <div class="section-label">Our Purpose</div>
+
+                <h2 class="section-title">
+                    Our Mission and <span class="pink">Vision</span>
+                </h2>
+
+                <p class="section-description">
+                    Our focus is on engineering-led thinking and
+                    solutions that consider performance, efficiency
+                    and long-term resilience.
+                </p>
+
+                <div class="mission-grid">
+
+                    <article class="mission-card">
+
+                        <div class="card-number">01 / OUR MISSION</div>
+
+                        <h3>Deliver Meaningful Engineering Solutions</h3>
+
+                        <p>
+                            To focus on practical engineering approaches
+                            that respond to project needs, encourage
+                            effective coordination and consider the
+                            performance of building systems.
+                        </p>
+
+                    </article>
+
+                    <article class="mission-card">
+
+                        <div class="card-number">02 / OUR VISION</div>
+
+                        <h3>Support a More Resilient Future</h3>
+
+                        <p>
+                            To contribute to environments where engineering,
+                            responsible resource use and thoughtful design
+                            support lasting value and resilience.
+                        </p>
+
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- OUR VALUES -->
+        <section>
+            <div class="container">
+
+                <div class="section-label">What Guides Us</div>
+
+                <h2 class="section-title">
+                    Our Core <span class="pink">Values</span>
+                </h2>
+
+                <p class="section-description">
+                    The principles that shape how we think about
+                    engineering and the solutions we aim to support.
+                </p>
+
+                <div class="values-grid">
+
+                    <article class="value-card">
+                        <div class="value-mark">01</div>
+                        <h3>Engineering Excellence</h3>
+                        <p>
+                            Taking a considered approach to technical
+                            challenges, coordination and performance.
+                        </p>
+                    </article>
+
+                    <article class="value-card">
+                        <div class="value-mark">02</div>
+                        <h3>Innovation</h3>
+                        <p>
+                            Remaining open to better ways of approaching
+                            engineering problems and project requirements.
+                        </p>
+                    </article>
+
+                    <article class="value-card">
+                        <div class="value-mark">03</div>
+                        <h3>Sustainability</h3>
+                        <p>
+                            Considering resource efficiency and the
+                            longer-term impact of engineering decisions.
+                        </p>
+                    </article>
+
+                    <article class="value-card">
+                        <div class="value-mark">04</div>
+                        <h3>Collaboration</h3>
+                        <p>
+                            Recognising the value of coordination between
+                            engineering disciplines and project teams.
+                        </p>
+                    </article>
+
+                    <article class="value-card">
+                        <div class="value-mark">05</div>
+                        <h3>Practical Thinking</h3>
+                        <p>
+                            Keeping project requirements and real-world
+                            use in mind when considering solutions.
+                        </p>
+                    </article>
+
+                    <article class="value-card">
+                        <div class="value-mark">06</div>
+                        <h3>Resilience</h3>
+                        <p>
+                            Supporting approaches that consider reliability,
+                            adaptability and long-term performance.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ENGINEERING DISCIPLINES -->
+        <section class="disciplines-section">
+            <div class="container">
+
+                <div class="section-label">Our Areas of Focus</div>
+
+                <h2 class="section-title">
+                    Engineering <span class="pink">Disciplines</span>
+                </h2>
+
+                <p class="section-description">
+                    Our work is centred on the following engineering
+                    areas and related considerations.
+                </p>
+
+                <ul class="discipline-list">
+                    <li>Electrical Engineering</li>
+                    <li>Mechanical Engineering</li>
+                    <li>Public Health Engineering</li>
+                    <li>Lighting Solutions</li>
+                    <li>Sustainability</li>
+                    <li>Integrated Building Engineering Systems</li>
+                </ul>
+
+                <a href="services.html" class="button">
+                    View All Services
+                </a>
 
             </div>
-
-            <p>
-                Our mission is to support better building performance
-                through considered engineering solutions that balance
-                functionality, efficiency and sustainability.
-            </p>
-
         </section>
 
-        <section class="cta section">
 
-            <p class="eyebrow">WORK WITH US</p>
+        <!-- CONTACT CALL TO ACTION -->
+        <section class="cta-section">
+            <div class="container">
 
-            <h2>Let's discuss your next project.</h2>
+                <h2>
+                    Let's Talk About Your
+                    <span>Engineering Project.</span>
+                </h2>
 
-            <p>
-                Contact us to discuss your engineering needs
-                and potential project requirements.
-            </p>
+                <p>
+                    Contact Smart Business Resilience to discuss your
+                    requirements and learn more about our areas of focus.
+                </p>
 
-            <a href="contact.html" class="button button-light">
-                Contact Our Team
-            </a>
+                <a
+                    href="mailto:info@smartbusinessresilience.co.uk"
+                    class="button"
+                >
+                    Email SBR
+                </a>
 
+            </div>
         </section>
 
     </main>
 
-    <footer class="footer">
 
-        <a href="index.html" class="logo">
-            SMART BUSINESS
-            <span>RESILIENCE</span>
-        </a>
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
 
-        <p>
-            Engineering solutions for a more resilient future.
-        </p>
+            <div class="footer-grid">
 
-        <a href="mailto:info@smartbusinessresilience.co.uk">
-            info@smartbusinessresilience.co.uk
-        </a>
+                <div class="footer-about">
 
-        <p class="copyright">
-            &copy; <span id="year">2026</span>
-            Smart Business Resilience. All rights reserved.
-        </p>
+                    <a href="../index.html" class="logo">
+                        <div class="logo-symbol">SBR</div>
 
-    </footer>
+                        <div class="logo-text">
+                            <h2>SMART BUSINESS</h2>
+                            <p>RESILIENCE</p>
+                        </div>
+                    </a>
 
-    <script src="main.js"></script>
-
-</body>
-          </html>
+    
