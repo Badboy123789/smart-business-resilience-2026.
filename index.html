@@ -1,825 +1,991 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>SBR | Smart Business Resilience — Engineering Excellence</title>
-
-    <meta name="description"
-          content="Smart Business Resilience (SBR) delivers innovative engineering solutions across electrical, mechanical, public health, lighting and sustainability engineering.">
-
-    <meta name="theme-color" content="#080808">
-
-    <!-- Main website design -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Additional animations, if this file exists -->
-    <link rel="stylesheet" href="css/animations.css">
-
-    <style>
-        :root {
-            --sbr-black: #080808;
-            --sbr-panel: #111111;
-            --sbr-pink: #f05291;
-            --sbr-pink-light: #ff8ab9;
-            --sbr-white: #ffffff;
-            --sbr-muted: #c6c6c6;
-            --sbr-border: rgba(240, 82, 145, 0.25);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 85px;
-        }
-
-        body {
-            margin: 0;
-            background: var(--sbr-black);
-            color: var(--sbr-white);
-            font-family: Arial, Helvetica, sans-serif;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button,
-        a {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .sbr-container {
-            width: min(1200px, 88%);
-            margin: 0 auto;
-        }
-
-        /* NAVIGATION */
-
-        .sbr-nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            padding: 18px 6%;
-            background: rgba(8, 8, 8, 0.96);
-            border-bottom: 1px solid var(--sbr-border);
-            backdrop-filter: blur(14px);
-        }
-
-        .sbr-logo {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-            flex-shrink: 0;
-        }
-
-        .sbr-logo strong {
-            font-size: 30px;
-            font-weight: 900;
-            letter-spacing: 3px;
-            color: var(--sbr-white);
-        }
-
-        .sbr-logo strong span {
-            color: var(--sbr-pink);
-        }
-
-        .sbr-logo small {
-            margin-top: 5px;
-            color: var(--sbr-muted);
-            font-size: 9px;
-            letter-spacing: 1.4px;
-        }
-
-        .sbr-nav-links {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .sbr-nav-links a {
-            color: #e5e5e5;
-            font-size: 13px;
-            transition: color 0.3s ease;
-        }
-
-        .sbr-nav-links a:hover {
-            color: var(--sbr-pink);
-        }
-
-        .sbr-nav-links .sbr-nav-contact {
-            padding: 12px 17px;
-            border: 1px solid var(--sbr-pink);
-            color: var(--sbr-pink);
-        }
-
-        .sbr-nav-links .sbr-nav-contact:hover {
-            background: var(--sbr-pink);
-            color: var(--sbr-black);
-        }
-
-        /* HERO */
-
-        .sbr-hero {
-            position: relative;
-            isolation: isolate;
-            min-height: 690px;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            padding: 90px 0;
-            background:
-                radial-gradient(
-                    ellipse at 85% 42%,
-                    rgba(240, 82, 145, 0.16),
-                    transparent 40%
-                ),
-                var(--sbr-black);
-        }
-
-        .sbr-hero::before {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            top: 0;
-            right: 9%;
-            width: 1px;
-            height: 100%;
-            background: linear-gradient(
-                transparent,
-                rgba(240, 82, 145, 0.5),
-                transparent
-            );
-        }
-
-        .sbr-hero-content {
-            position: relative;
-            z-index: 2;
-            width: min(900px, 88%);
-            margin-left: 8%;
-        }
-
-        .sbr-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 22px;
-            color: var(--sbr-pink);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-
-        .sbr-eyebrow::before {
-            content: "";
-            width: 35px;
-            height: 2px;
-            background: var(--sbr-pink);
-        }
-
-        .sbr-hero h1 {
-            margin: 0;
-            font-size: clamp(65px, 13vw, 155px);
-            line-height: 0.85;
-            font-weight: 900;
-            letter-spacing: -8px;
-        }
-
-        .sbr-hero h1 .sbr-letters {
-            display: block;
-            color: var(--sbr-white);
-            text-shadow: 0 0 55px rgba(240, 82, 145, 0.12);
-        }
-
-        .sbr-hero h1 .sbr-letters span {
-            color: var(--sbr-pink);
-        }
-
-        .sbr-full-name {
-            margin-top: 30px;
-            max-width: 750px;
-            color: var(--sbr-white);
-            font-size: clamp(20px, 3.5vw, 35px);
-            line-height: 1.25;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        .sbr-full-name span {
-            color: var(--sbr-pink);
-        }
-
-        .sbr-hero-description {
-            max-width: 560px;
-            margin-top: 24px;
-            color: var(--sbr-muted);
-            font-size: 16px;
-            line-height: 1.9;
-        }
-
-        .sbr-hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 35px;
-        }
-
-        .sbr-button {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 52px;
-            padding: 15px 25px;
-            border: 1px solid var(--sbr-pink);
-            background: var(--sbr-pink);
-            color: var(--sbr-black);
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition:
-                transform 0.3s ease,
-                background 0.3s ease,
-                box-shadow 0.3s ease;
-        }
-
-        .sbr-button:hover {
-            transform: translateY(-4px);
-            background: var(--sbr-pink-light);
-            box-shadow: 0 10px 35px rgba(240, 82, 145, 0.2);
-        }
-
-        .sbr-button-outline {
-            background: transparent;
-            color: var(--sbr-white);
-        }
-
-        .sbr-button-outline:hover {
-            color: var(--sbr-black);
-            background: var(--sbr-pink);
-        }
-
-        .sbr-hero-index {
-            position: absolute;
-            right: 6%;
-            bottom: 40px;
-            color: var(--sbr-pink);
-            font-size: 11px;
-            letter-spacing: 3px;
-            writing-mode: vertical-rl;
-        }
-
-        /* MOVING BRAND STRIP */
-
-        .sbr-marquee {
-            overflow: hidden;
-            padding: 18px 0;
-            background: var(--sbr-pink);
-            color: var(--sbr-black);
-        }
-
-        .sbr-marquee-track {
-            display: flex;
-            width: max-content;
-            animation: sbr-marquee-move 28s linear infinite;
-        }
-
-        .sbr-marquee-track span {
-            padding-right: 35px;
-            font-size: 13px;
-            font-weight: 900;
-            letter-spacing: 3px;
-            white-space: nowrap;
-        }
-
-        @keyframes sbr-marquee-move {
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* INTRODUCTION */
-
-        .sbr-intro {
-            padding: 115px 0;
-            background: var(--sbr-black);
-        }
-
-        .sbr-intro-grid {
-            display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
-            gap: 75px;
-            align-items: start;
-        }
-
-        .sbr-section-label {
-            color: var(--sbr-pink);
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-
-        .sbr-intro h2,
-        .sbr-section-heading h2 {
-            margin: 18px 0;
-            color: var(--sbr-white);
-            font-size: clamp(34px, 5vw, 58px);
-            line-height: 1.08;
-            letter-spacing: -2px;
-        }
-
-        .sbr-intro h2 span,
-        .sbr-section-heading h2 span {
-            color: var(--sbr-pink);
-        }
-
-        .sbr-intro-copy p {
-            color: var(--sbr-muted);
-            font-size: 15px;
-            line-height: 1.95;
-        }
-
-        .sbr-text-link {
-            display: inline-block;
-            margin-top: 15px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--sbr-pink);
-            color: var(--sbr-pink);
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* SERVICES */
-
-        .sbr-services {
-            padding: 105px 0;
-            background: #0d0d0d;
-            border-top: 1px solid var(--sbr-border);
-            border-bottom: 1px solid var(--sbr-border);
-        }
-
-        .sbr-section-heading {
-            max-width: 750px;
-            margin-bottom: 45px;
-        }
-
-        .sbr-section-heading > p {
-            color: var(--sbr-muted);
-            line-height: 1.9;
-        }
-
-        .sbr-service-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-        .sbr-service-card {
-            position: relative;
-            min-height: 240px;
-            padding: 30px;
-            overflow: hidden;
-            background: var(--sbr-panel);
-            border: 1px solid var(--sbr-border);
-            transition:
-                transform 0.35s ease,
-                border-color 0.35s ease,
-                box-shadow 0.35s ease;
-        }
-
-        .sbr-service-card::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 3px;
-            background: var(--sbr-pink);
-            transition: width 0.4s ease;
-        }
-
-        .sbr-service-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--sbr-pink);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
-        }
-
-        .sbr-service-card:hover::after {
-            width: 100%;
-        }
-
-        .sbr-service-number {
-            display: block;
-            margin-bottom: 32px;
-            color: var(--sbr-pink);
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-
-        .sbr-service-card h3 {
-            margin: 0 0 14px;
-            color: var(--sbr-white);
-            font-size: 20px;
-        }
-
-        .sbr-service-card p {
-            margin: 0;
-            color: var(--sbr-muted);
-            font-size: 13px;
-            line-height: 1.8;
-        }
-
-        /* ENGINEERING VISUALS */
-
-        .sbr-visuals {
-            padding: 110px 0;
-            background: var(--sbr-black);
-        }
-
-        .sbr-visual-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 24px;
-        }
-
-        .sbr-visual-card {
-            position: relative;
-            min-height: 340px;
-            display: flex;
-            align-items: flex-end;
-            overflow: hidden;
-            background: var(--sbr-panel);
-            border: 1px solid var(--sbr-border);
-        }
-
-        .sbr-visual-card img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.7s ease;
-        }
-
-        .sbr-visual-card:hover img {
-            transform: scale(1.06);
-        }
-
-        .sbr-visual-card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                transparent 5%,
-                rgba(8, 8, 8, 0.35) 35%,
-                rgba(8, 8, 8, 0.96) 100%
-            );
-        }
-
-        .sbr-visual-caption {
-            position: relative;
-            z-index: 2;
-            padding: 30px;
-        }
-
-        .sbr-visual-caption span {
-            color: var(--sbr-pink);
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .sbr-visual-caption h3 {
-            margin: 10px 0 0;
-            font-size: 26px;
-        }
-
-        .sbr-visual-caption p {
-            margin: 10px 0 0;
-            color: #dedede;
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        /* CALL TO ACTION */
-
-        .sbr-cta {
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-            background:
-                radial-gradient(
-                    circle at 85% 50%,
-                    rgba(240, 82, 145, 0.17),
-                    transparent 35%
-                ),
-                #101010;
-            border-top: 1px solid var(--sbr-border);
-        }
-
-        .sbr-cta-content {
-            max-width: 800px;
-        }
-
-        .sbr-cta h2 {
-            margin: 20px 0;
-            font-size: clamp(38px, 7vw, 75px);
-            line-height: 1;
-            letter-spacing: -3px;
-        }
-
-        .sbr-cta h2 span {
-            color: var(--sbr-pink);
-        }
-
-        .sbr-cta p {
-            max-width: 600px;
-            margin-bottom: 30px;
-            color: var(--sbr-muted);
-            line-height: 1.9;
-        }
-
-        /* FOOTER */
-
-        .sbr-footer {
-            padding: 55px 0 25px;
-            background: #050505;
-        }
-
-        .sbr-footer-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr 1fr;
-            gap: 40px;
-            padding-bottom: 40px;
-        }
-
-        .sbr-footer-brand {
-            font-size: 30px;
-            font-weight: 900;
-            letter-spacing: 3px;
-        }
-
-        .sbr-footer-brand span {
-            color: var(--sbr-pink);
-        }
-
-        .sbr-footer p {
-            color: var(--sbr-muted);
-            font-size: 13px;
-            line-height: 1.9;
-        }
-
-        .sbr-footer h3 {
-            margin: 0 0 18px;
-            color: var(--sbr-pink);
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .sbr-footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .sbr-footer-links a {
-            color: var(--sbr-muted);
-            font-size: 13px;
-            overflow-wrap: anywhere;
-            transition: color 0.3s ease;
-        }
-
-        .sbr-footer-links a:hover {
-            color: var(--sbr-pink);
-        }
-
-        .sbr-footer-bottom {
-            padding-top: 22px;
-            border-top: 1px solid var(--sbr-border);
-        }
-
-        .sbr-footer-bottom p {
-            margin: 0;
-            font-size: 11px;
-        }
-
-        /* JAVASCRIPT SCROLL REVEALS */
-
-        .sbr-reveal {
-            opacity: 0;
-            transform: translateY(28px);
-            transition:
-                opacity 0.8s ease,
-                transform 0.8s ease;
-        }
-
-        .sbr-reveal.sbr-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .sbr-hero .sbr-reveal {
-            transition-duration: 1s;
-        }
-
-        .sbr-service-card:nth-child(2),
-        .sbr-visual-card:nth-child(2) {
-            transition-delay: 0.12s;
-        }
-
-        .sbr-service-card:nth-child(3) {
-            transition-delay: 0.2s;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 850px) {
-            .sbr-nav {
-                flex-wrap: wrap;
-            }
-
-            .sbr-nav-links {
-                width: 100%;
-                justify-content: flex-start;
-                flex-wrap: wrap;
-                gap: 15px 20px;
-            }
-
-            .sbr-intro-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .sbr-service-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .sbr-footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 560px) {
-            .sbr-container {
-                width: 88%;
-            }
-
-            .sbr-nav {
-                padding: 16px 6%;
-            }
-
-            .sbr-logo strong {
-                font-size: 27px;
-            }
-
-            .sbr-nav-links {
-                gap: 13px 17px;
-            }
-
-            .sbr-nav-links a {
-                font-size: 12px;
-            }
-
-            .sbr-nav-links .sbr-nav-contact {
-                padding: 8px 10px;
-            }
-
-            .sbr-hero {
-                min-height: 610px;
-                padding: 75px 0;
-            }
-
-            .sbr-hero-content {
-                width: 88%;
-                margin-left: 6%;
-            }
-
-            .sbr-hero h1 {
-                font-size: clamp(72px, 21vw, 110px);
-                letter-spacing: -5px;
-            }
-
-            .sbr-full-name {
-                font-size: 23px;
-            }
-
-            .sbr-hero-description {
-                font-size: 14px;
-            }
-
-            .sbr-eyebrow {
-                font-size: 9px;
-                letter-spacing: 2px;
-            }
-
-            .sbr-hero-index {
-                right: 4%;
-                bottom: 20px;
-            }
-
-            .sbr-intro,
-            .sbr-services,
-            .sbr-visuals {
-                padding: 75px 0;
-            }
-
-            .sbr-service-grid,
-            .sbr-visual-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .sbr-service-card {
-                min-height: 210px;
-            }
-
-            .sbr-visual-card {
-                min-height: 290px;
-            }
-
-            .sbr-visual-caption h3 {
-                font-size: 23px;
-            }
-
-            .sbr-cta {
-                padding: 75px 0;
-            }
-
-            .sbr-cta h2 {
-                letter-spacing: -1px;
-            }
-
-            .sbr-footer-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                scroll-behavior: auto !important;
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-
-            .sbr-reveal {
-                opacity: 1;
-                transform: none;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Smart Business Resilience | Engineering Solutions</title>
+
+  <meta name="description" content="Smart Business Resilience delivers engineering-focused solutions across electrical, mechanical, public health, lighting and sustainability disciplines.">
+
+  <meta name="theme-color" content="#080808">
+
+  <style>
+    /* =========================
+       GLOBAL SETTINGS
+    ========================= */
+
+    :root {
+      --black: #080808;
+      --dark: #0d0d12;
+      --pink: #ff1688;
+      --pink-light: #ff4ba5;
+      --white: #ffffff;
+      --muted: #c2c2cc;
+      --border: rgba(255,255,255,0.13);
+      --container: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(90%, var(--container));
+      margin: auto;
+    }
+
+    .pink {
+      color: var(--pink);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--pink);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.15;
+      letter-spacing: -0.7px;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    section {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 23px;
+      background: linear-gradient(110deg, var(--pink), #ff0080);
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid var(--pink);
+      border-radius: 7px;
+      transition: transform .25s ease, box-shadow .25s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 35px rgba(255,22,136,.25);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--pink);
+    }
+
+    .btn-outline:hover {
+      background: var(--pink);
+    }
+
+    /* =========================
+       HEADER AND NAVIGATION
+    ========================= */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8,8,8,.94);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 78px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border: 3px solid var(--pink);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      font-weight: 900;
+      color: white;
+      box-shadow: 0 0 20px rgba(255,22,136,.12);
+    }
+
+    .brand-name {
+      font-size: 12px;
+      line-height: 1.4;
+      letter-spacing: 1.3px;
+      font-weight: 800;
+    }
+
+    .brand-name span {
+      display: block;
+      color: var(--pink);
+      letter-spacing: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 600;
+      color: #e5e5eb;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--pink);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: white;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+      min-height: 640px;
+      padding: 110px 0;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 90% 20%, rgba(255,22,136,.16), transparent 38%),
+        radial-gradient(ellipse at 0% 90%, rgba(255,22,136,.09), transparent 35%),
+        linear-gradient(120deg, #080808, #101019 60%, #080808);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border: 1px solid rgba(255,22,136,.18);
+      transform: rotate(35deg);
+      right: -180px;
+      top: 70px;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border: 1px solid rgba(255,22,136,.10);
+      transform: rotate(35deg);
+      right: -110px;
+      top: 135px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .hero h1 {
+      font-size: clamp(43px, 7vw, 78px);
+      line-height: 1.05;
+      margin-bottom: 25px;
+      letter-spacing: -2.5px;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--pink);
+    }
+
+    .hero-description {
+      font-size: 17px;
+      max-width: 610px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 15px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+      border-radius: 30px;
+      font-size: 12px;
+      margin-bottom: 25px;
+      color: #eeeeee;
+    }
+
+    .hero-badge span {
+      width: 8px;
+      height: 8px;
+      background: var(--pink);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--pink);
+    }
+
+    /* =========================
+       INTRODUCTION
+    ========================= */
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .intro-copy p {
+      margin-bottom: 17px;
+    }
+
+    .intro-panel {
+      min-height: 330px;
+      padding: 38px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(255,22,136,.16), transparent 45%),
+        #0c0c11;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-panel::after {
+      content: "SBR";
+      position: absolute;
+      right: 10px;
+      bottom: -55px;
+      font-size: 180px;
+      line-height: 1;
+      font-weight: 900;
+      color: rgba(255,22,136,.055);
+    }
+
+    .intro-panel h3 {
+      font-size: 25px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-list {
+      list-style: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      color: #eeeeee;
+    }
+
+    .intro-list li::before {
+      content: "✦";
+      color: var(--pink);
+      margin-right: 12px;
+    }
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 45px;
+    }
+
+    .section-heading p {
+      max-width: 610px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: linear-gradient(145deg, #111116, #09090c);
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--pink);
+      transition: width .35s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(255,22,136,.65);
+      box-shadow: 0 18px 45px rgba(0,0,0,.28);
+    }
+
+    .service-card:hover::before {
+      width: 100%;
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      border: 1px solid rgba(255,22,136,.35);
+      background: rgba(255,22,136,.08);
+      color: var(--pink);
+      font-size: 25px;
+      margin-bottom: 23px;
+    }
+
+    .service-card h3 {
+      font-size: 21px;
+      margin-bottom: 13px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      margin-bottom: 23px;
+    }
+
+    .text-link {
+      color: var(--pink);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .text-link:hover {
+      color: white;
+    }
+
+    /* =========================
+       APPROACH
+    ========================= */
+
+    .approach {
+      background:
+        radial-gradient(ellipse at 0% 100%, rgba(255,22,136,.09), transparent 40%),
+        #0b0b0f;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 65px;
+      align-items: start;
+    }
+
+    .approach-copy p {
+      margin-bottom: 20px;
+    }
+
+    .principles {
+      display: grid;
+      gap: 15px;
+    }
+
+    .principle {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 22px;
+      background: #111116;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: border-color .25s, transform .25s;
+    }
+
+    .principle:hover {
+      border-color: var(--pink);
+      transform: translateX(5px);
+    }
+
+    .principle-icon {
+      color: var(--pink);
+      font-size: 25px;
+      line-height: 1.2;
+    }
+
+    .principle h3 {
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    .principle p {
+      font-size: 13px;
+    }
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      min-height: 250px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background:
+        linear-gradient(0deg, rgba(8,8,8,.98), rgba(8,8,8,.25)),
+        radial-gradient(circle at 80% 10%, rgba(255,22,136,.20), transparent 45%),
+        #101016;
+      transition: border-color .25s, transform .25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--pink);
+    }
+
+    .project-number {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--pink);
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .project-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 14px;
+    }
+
+    .projects-note {
+      font-size: 12px;
+      margin-top: 22px;
+    }
+
+    /* =========================
+       VALUES
+    ========================= */
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .value-card {
+      padding: 25px 20px;
+      border-left: 2px solid var(--pink);
+      background: #101014;
+    }
+
+    .value-card h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .value-card p {
+      font-size: 13px;
+    }
+
+    /* =========================
+       CONTACT CTA
+    ========================= */
+
+    .contact-cta {
+      padding: 75px 0;
+      background:
+        radial-gradient(circle at 90% 0%, rgba(255,255,255,.12), transparent 30%),
+        linear-gradient(110deg, #d9006c, #ff1688 60%, #d9006c);
+      border: none;
+    }
+
+    .contact-cta-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .contact-cta h2 {
+      font-size: clamp(30px, 4vw, 45px);
+      margin-bottom: 12px;
+    }
+
+    .contact-cta p {
+      color: white;
+      max-width: 620px;
+    }
+
+    .contact-cta .btn {
+      background: var(--black);
+      border-color: var(--black);
+      flex-shrink: 0;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+      padding: 65px 0 25px;
+      background: #060608;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: 45px;
+      padding-bottom: 40px;
+    }
+
+    .footer-about p {
+      font-size: 13px;
+      margin-top: 20px;
+      max-width: 340px;
+    }
+
+    .footer h3 {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin: 9px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--pink);
+    }
+
+    .footer-bottom {
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-content {
+      animation: heroEnter .9s ease both;
+    }
+
+    @keyframes heroEnter {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(255,22,136,.1);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(255,22,136,.25);
+      }
+    }
+
+    .brand-mark {
+      animation: glow 4s ease-in-out infinite;
+    }
+
+    /* =========================
+       RESPONSIVE DESIGN
+    ========================= */
+
+    @media (max-width: 950px) {
+      .navbar {
+        flex-wrap: wrap;
+        padding: 15px 0;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .intro-grid,
+      .approach-grid {
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      html {
+        scroll-padding-top: 75px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .navbar {
+        min-height: 72px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 0;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 13px 10px;
+        border-bottom: 1px solid var(--border);
+        font-size: 14px;
+      }
+
+      .nav-links .nav-contact {
+        margin-top: 10px;
+        text-align: center;
+        border: 1px solid var(--pink);
+        border-radius: 6px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 90px 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(42px, 12vw, 64px);
+        letter-spacing: -1.5px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .intro-grid,
+      .approach-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-panel {
+        min-height: 300px;
+        padding: 28px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        padding: 27px;
+      }
+
+      .contact-cta-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .contact-cta .btn {
+        width: 100%;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .project-card {
+        min-height: 220px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .brand-name {
+        font-size: 10px;
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+      }
+
+      .hero h1 {
+        font-size: 39px;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container navbar">
 
-    <nav class="sbr-nav" aria-label="Main navigation">
-
-        <a href="index.html" class="sbr-logo" aria-label="SBR Home">
-            <strong><span>S</span>BR</strong>
-            <small>SMART BUSINESS RESILIENCE</small>
-        </a>
-
-        <div class="sbr-nav-links">
-            <a href="index.html">Home</a>
-            <a href="pages/about.html">About</a>
-            <a href="pages/services.html">Services</a>
-            <a href="pages/projects.html">Projects</a>
-            <a href="pages/contact.html" class="sbr-nav-contact">
-                Contact Us ↗
-            </a>
+      <a href="#home" class="brand" aria-label="Smart Business Resilience home">
+        <div class="brand-mark">SBR</div>
+        <div class="brand-name">
+          SMART BUSINESS
+          <span>RESILIENCE</span>
         </div>
+      </a>
 
-    </nav>
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="pages/about.html">About</a>
+        <a href="pages/services.html">Services</a>
+        <a href="pages/projects.html">Projects</a>
+        <a href="pages/contact.html">Contact</a>
+        <a href="pages/contact.html" class="nav-contact">Contact Us ↗</a>
+      </nav>
+
+    </div>
+  </header>
 
 
-    <!-- HERO SECTION -->
+  <main>
 
-    <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
 
-        <section class="sbr-hero" id="home">
+          <div class="hero-badge">
+            <span></span>
+            ENGINEERING A STRONGER TOMORROW
+          </div>
 
-            <div class="sbr-hero-content
+          <h1>
+            Smart Engineering.
+            <span>Lasting Resilience.</span>
+          </h1>
+
+          <p class="hero-description">
+            Smart Business Resilience (SBR) is an engineering-focused
+            company working across electrical, mechanical, public health,
+            lighting and sustainability to support smarter, more efficient
+            and resilient environments.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#services" class="btn">
+              Explore Our Services <span>→</span>
+            </a>
+
+            <a href="#projects" class="btn btn-outline">
+              Discover Our Work <span>↗</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- INTRODUCTION -->
+    <section id="about">
+      <div class="container intro-grid">
+
+        <div class="intro-copy reveal">
+          <span class="eyebrow">ABOUT SBR</span>
+
+          <h2>
+            Engineering at the Heart of
+            <span class="pink">What We Do.</span>
+          </h2>
+
+          <p>
+            Smart Business Resilience focuses on engineering disciplines
+            that help buildings and infrastructure operate effectively.
+            Our approach brings together technical thinking, practical
+            solutions and consideration for long-term performance.
+          </p>
+
+          <p>
+            We recognise the importance of coordinated engineering,
+            responsible resource use and solutions that respond to
+            the needs of each project.
+          </p>
+
+          <a href="pages/about.html" class=
